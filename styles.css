@@ -94,6 +94,9 @@ main {
     position: relative;
     margin: 0 auto;
     z-index: 1;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.19),
+        0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .rocket-window {
@@ -104,24 +107,30 @@ main {
     position: absolute;
     top: 10px;
     left: 10px;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .rocket-fin {
-    width: 0;
-    height: 0;
+    width: 20px;
+    height: 40px;
     border-bottom: 40px solid #ff5722;
     position: absolute;
     bottom: -10px;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.19),
+        0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .rocket-fin:nth-child(2) {
-    border-left: 20px solid transparent;
     left: -20px;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
 }
 
 .rocket-fin:nth-child(3) {
-    border-right: 20px solid transparent;
     right: -20px;
+    clip-path: polygon(100% 100%, 0% 100%, 0% 0%);
 }
 
 .rocket-fin:nth-child(4) {
@@ -151,6 +160,9 @@ main {
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     background: orange;
     z-index: 2;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.19),
+        0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .flame-outer {
@@ -162,6 +174,9 @@ main {
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     background: red;
     z-index: 1;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.19),
+        0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 @keyframes flame {
