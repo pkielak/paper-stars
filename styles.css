@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    scroll-timeline: --starsTimeline y;
+    /* Firefox supports the older "vertical" syntax */
+    scroll-timeline: --starsTimeline vertical;
+}
+
+main {
+    min-height: 100vh;
+    position: relative;
+}
+
+.stars {
+    position: absolute;
+    background: linear-gradient(to bottom, #0c1445, #1a237e, #0d47a1);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 200vh;
+    z-index: -1;
+    animation-name: scrollAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: --starsTimeline;
+}
+
+@keyframes scrollAnimation {
+    from {
+        transform: translateY(200vh);
+    }
+
+    to {
+        transform: translateY(0vh);
+    }
+}
+
+.paper-star {
+    position: absolute;
+    color: #ffeb3b;
+    font-size: 2rem;
+    animation: float 25s infinite linear;
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+    transform: rotate(0deg);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.static-star {
+    position: absolute;
+    color: #ffeb3b;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    text-shadow: 0 0 8px rgba(255, 235, 59, 0.5);
+}
+
+.star-shape {
+    position: absolute;
+    color: #ffeb3b;
+    font-size: 2rem;
+    opacity: 0.8;
+    text-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.19),
+        0 6px 6px rgba(0, 0, 0, 0.23);
+    transform: rotate(0deg);
+}
+
+/* Rocket styles */
+.rocket {
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.rocket-body {
+    width: 40px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    margin: 0 auto;
+}
+
+.rocket-window {
+    width: 20px;
+    height: 20px;
+    background: #2196f3;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.rocket-fin {
+    width: 0;
+    height: 0;
+    border-bottom: 40px solid #ff5722;
+    position: absolute;
+    bottom: -10px;
+}
+
+.rocket-fin:nth-child(2) {
+    border-left: 20px solid transparent;
+    left: -20px;
+}
+
+.rocket-fin:nth-child(3) {
+    border-right: 20px solid transparent;
+    right: -20px;
+}
+
+.rocket-fin:nth-child(4) {
+    width: 5px;
+    height: 40px;
+    border-bottom: 0;
+    background: #ff5722;
+    right: 17.5px;
+    z-index: 100;
+}
+
+.flames {
+    position: absolute;
+    z-index: 99;
+    left: 75%;
+    transform: rotate(180deg);
+}
+
+.flame {
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(to top, #ff9800, #ff5722);
+    position: absolute;
+    bottom: 0;
+    animation: flame 0.3s infinite alternate;
+}
+
+.flame:nth-child(1) {
+    left: -10px;
+    animation-delay: 0s;
+}
+
+.flame:nth-child(2) {
+    left: 0;
+    animation-delay: 0.1s;
+}
+
+.flame:nth-child(3) {
+    left: 10px;
+    animation-delay: 0.2s;
+}
+
+@keyframes flame {
+    0% {
+        height: 40px;
+        opacity: 0.8;
+    }
+    100% {
+        height: 70px;
+        opacity: 1;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    z-index: 10;
+}
