@@ -10,37 +10,25 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
-    scroll-timeline: --starsTimeline y;
-    /* Firefox supports the older "vertical" syntax */
-    scroll-timeline: --starsTimeline vertical;
+    background-color: #0c1445;
 }
 
 main {
     min-height: 100vh;
     position: relative;
+    z-index: 1;
 }
 
 .stars {
-    position: absolute;
+    position: fixed;
     background: linear-gradient(to bottom, #0c1445, #1a237e, #0d47a1);
     left: 0;
     top: 0;
     width: 100%;
     height: 200vh;
     z-index: -1;
-    animation-name: scrollAnimation;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-timeline: --starsTimeline;
-}
-
-@keyframes scrollAnimation {
-    from {
-        transform: translateY(200vh);
-    }
-
-    to {
-        transform: translateY(0vh);
-    }
+    will-change: transform;
+    transform: translateY(-100vh);
 }
 
 .paper-star {

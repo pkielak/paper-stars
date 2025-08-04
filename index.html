@@ -5,6 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Paper Stars Background</title>
         <link rel="stylesheet" type="text/css" href="styles.css" />
+        <style>
+            body {
+                height: 300vh; /* Make page scrollable */
+                margin: 0;
+                overflow-x: hidden;
+            }
+            main {
+                height: 300vh;
+            }
+        </style>
     </head>
     <body>
         <main></main>
@@ -241,5 +251,34 @@
                 <div class="flame"></div>
             </div>
         </div>
+
+        <script>
+            // Simple function to handle stars movement on scroll
+            function handleScroll() {
+                const starsElement = document.getElementById("stars");
+
+                // Calculate how far down the page we've scrolled (0 to 1)
+                const scrollPercent =
+                    window.scrollY /
+                    (document.body.scrollHeight - window.innerHeight);
+
+                // Map this to stars position (-100vh to 0vh) - stars move down while scrolling
+                const starsPosition = -100 + scrollPercent * 100;
+
+                // Apply the transform
+                starsElement.style.transform = `translateY(${starsPosition}vh)`;
+            }
+
+            // Set initial position when page loads
+            window.addEventListener("load", function () {
+                // Set initial position - start with stars above viewport
+                document.getElementById("stars").style.transform =
+                    "translateY(-100vh)";
+                handleScroll();
+
+                // Update position when scrolling
+                window.addEventListener("scroll", handleScroll);
+            });
+        </script>
     </body>
 </html>
