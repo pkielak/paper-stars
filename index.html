@@ -265,8 +265,20 @@
                 // Map this to stars position (-100vh to 0vh) - stars move down while scrolling
                 const starsPosition = -100 + scrollPercent * 100;
 
-                // Apply the transform
+                // Apply the transform with a debounced approach
                 starsElement.style.transform = `translateY(${starsPosition}vh)`;
+            }
+
+            // Create a throttled scroll handler to improve performance
+            function throttleScroll(callback, delay = 10) {
+                let lastCall = 0;
+                return function () {
+                    const now = Date.now();
+                    if (now - lastCall >= delay) {
+                        lastCall = now;
+                        callback.apply(this, arguments);
+                    }
+                };
             }
 
             // Set initial position when page loads
@@ -274,10 +286,12 @@
                 // Set initial position - start with stars above viewport
                 document.getElementById("stars").style.transform =
                     "translateY(-100vh)";
+
+                // Initial scroll position update
                 handleScroll();
 
-                // Update position when scrolling
-                window.addEventListener("scroll", handleScroll);
+                // Add throttled scroll event listener for better performance
+                window.addEventListener("scroll", throttleScroll(handleScroll));
             });
         </script>
     </body>
