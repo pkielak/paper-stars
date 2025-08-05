@@ -5,249 +5,221 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Paper Stars Background</title>
         <link rel="stylesheet" type="text/css" href="styles.css" />
-        <style>
-            body {
-                height: 300vh; /* Make page scrollable */
-                margin: 0;
-                overflow-x: hidden;
-                background-color: #0c1445;
-            }
-
-            main {
-                height: 300vh;
-                position: relative;
-            }
-
-            /* Simple styling for stars without animations */
-            .stars {
-                position: fixed;
-                background: linear-gradient(
-                    to bottom,
-                    #0c1445,
-                    #1a237e,
-                    #0d47a1
-                );
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 200vh;
-                z-index: -1;
-            }
-        </style>
     </head>
     <body>
         <main></main>
 
-        <div class="stars" id="stars">
-            <!-- Star shapes replacing "Paper stars" text -->
-            <div
-                class="star-shape"
-                style="
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    font-size: 4rem;
-                "
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 20%; top: 30%; font-size: 2.5rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 80%; top: 25%; font-size: 1.8rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 60%; top: 70%; font-size: 3rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 30%; top: 85%; font-size: 2.2rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 90%; top: 60%; font-size: 2.7rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 10%; top: 40%; font-size: 2rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 75%; top: 45%; font-size: 3.2rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 45%; top: 15%; font-size: 2.4rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 55%; top: 90%; font-size: 2.8rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 25%; top: 65%; font-size: 2.1rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 70%; top: 10%; font-size: 2.9rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 5%; top: 50%; font-size: 2.3rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 85%; top: 75%; font-size: 2.6rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 40%; top: 35%; font-size: 3.1rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 95%; top: 5%; font-size: 2.5rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 35%; top: 20%; font-size: 2.7rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 65%; top: 80%; font-size: 3rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 15%; top: 75%; font-size: 2.4rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 80%; top: 90%; font-size: 2.8rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 50%; top: 20%; font-size: 2.9rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 30%; top: 45%; font-size: 2.6rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 70%; top: 55%; font-size: 3.3rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 20%; top: 10%; font-size: 2.2rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 90%; top: 85%; font-size: 2.7rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 40%; top: 60%; font-size: 2.5rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 10%; top: 80%; font-size: 3.1rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 60%; top: 30%; font-size: 2.8rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 50%; top: 40%; font-size: 2.4rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 30%; top: 90%; font-size: 2.6rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 85%; top: 15%; font-size: 2.9rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 75%; top: 60%; font-size: 3.2rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 15%; top: 55%; font-size: 2.3rem"
-            >
-                ★
-            </div>
-            <div
-                class="star-shape"
-                style="left: 45%; top: 75%; font-size: 2.7rem"
-            >
-                ★
+        <div class="parallax" id="parallax">
+            <div class="stars">
+                <div
+                    class="star-shape"
+                    style="
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 4rem;
+                    "
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 20%; top: 30%; font-size: 2.5rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 80%; top: 25%; font-size: 1.8rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 60%; top: 70%; font-size: 3rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 30%; top: 85%; font-size: 2.2rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 90%; top: 60%; font-size: 2.7rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 10%; top: 40%; font-size: 2rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 75%; top: 45%; font-size: 3.2rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 45%; top: 15%; font-size: 2.4rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 55%; top: 90%; font-size: 2.8rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 25%; top: 65%; font-size: 2.1rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 70%; top: 10%; font-size: 2.9rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 5%; top: 50%; font-size: 2.3rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 85%; top: 75%; font-size: 2.6rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 40%; top: 35%; font-size: 3.1rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 95%; top: 5%; font-size: 2.5rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 35%; top: 20%; font-size: 2.7rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 65%; top: 80%; font-size: 3rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 15%; top: 75%; font-size: 2.4rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 80%; top: 90%; font-size: 2.8rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 50%; top: 20%; font-size: 2.9rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 30%; top: 45%; font-size: 2.6rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 70%; top: 55%; font-size: 3.3rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 20%; top: 10%; font-size: 2.2rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 90%; top: 85%; font-size: 2.7rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 40%; top: 60%; font-size: 2.5rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 10%; top: 80%; font-size: 3.1rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 60%; top: 30%; font-size: 2.8rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 50%; top: 40%; font-size: 2.4rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 30%; top: 90%; font-size: 2.6rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 85%; top: 15%; font-size: 2.9rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 75%; top: 60%; font-size: 3.2rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 15%; top: 55%; font-size: 2.3rem"
+                >
+                    ★
+                </div>
+                <div
+                    class="star-shape"
+                    style="left: 45%; top: 75%; font-size: 2.7rem"
+                >
+                    ★
+                </div>
             </div>
         </div>
 
@@ -272,16 +244,16 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const stars = document.getElementById("stars");
+                const parallax = document.getElementById("parallax");
 
                 // Disable CSS animation completely so JavaScript takes over
-                stars.style.animation = "none";
+                parallax.style.animation = "none";
 
-                // Initial position - start with stars above viewport
-                stars.style.transform = "translateY(-100vh)";
-                stars.style.transition = "none"; // Disable transition initially
+                // Initial position - start with parallax above viewport
+                parallax.style.transform = "translateY(-400vh)";
+                parallax.style.transition = "none"; // Disable transition initially
 
-                // Function to update stars position
+                // Function to update parallax position
                 function updateStarsPosition() {
                     // Calculate scroll percentage (0 to 1)
                     const scrollPercent =
@@ -289,15 +261,15 @@
                         (document.body.scrollHeight - window.innerHeight || 1);
 
                     // Map to position (-100vh to 0vh)
-                    const position = -100 + scrollPercent * 100;
+                    const position = -400 + scrollPercent * 400;
 
                     // Apply transform
-                    stars.style.transform = `translateY(${position}vh)`;
+                    parallax.style.transform = `translateY(${position}vh)`;
                 }
 
                 // Enable smooth transitions after initial position is set
                 setTimeout(function () {
-                    stars.style.transition = "transform 0.2s ease-out";
+                    parallax.style.transition = "transform 0.2s ease-out";
                     updateStarsPosition(); // Set initial position based on scroll
                 }, 50);
 
