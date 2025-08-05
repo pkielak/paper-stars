@@ -10,9 +10,28 @@
                 height: 300vh; /* Make page scrollable */
                 margin: 0;
                 overflow-x: hidden;
+                background-color: #0c1445;
             }
+
             main {
                 height: 300vh;
+                position: relative;
+            }
+
+            /* Simple styling for stars without animations */
+            .stars {
+                position: fixed;
+                background: linear-gradient(
+                    to bottom,
+                    #0c1445,
+                    #1a237e,
+                    #0d47a1
+                );
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 200vh;
+                z-index: -1;
             }
         </style>
     </head>
@@ -252,45 +271,50 @@
         </div>
 
         <script>
-            // Simple function to handle stars movement on scroll
-            function handleScroll() {
-                const starsElement = document.getElementById("stars");
+            document.addEventListener("DOMContentLoaded", function () {
+                const stars = document.getElementById("stars");
 
-                // Calculate how far down the page we've scrolled (0 to 1)
-                const scrollPercent =
-                    window.scrollY /
-                    (document.body.scrollHeight - window.innerHeight);
+                // Disable CSS animation completely so JavaScript takes over
+                stars.style.animation = "none";
 
-                // Map this to stars position (-100vh to 0vh) - stars move down while scrolling
-                const starsPosition = -100 + scrollPercent * 100;
+                // Initial position - start with stars above viewport
+                stars.style.transform = "translateY(-100vh)";
+                stars.style.transition = "none"; // Disable transition initially
 
-                // Apply the transform with a debounced approach
-                starsElement.style.transform = `translateY(${starsPosition}vh)`;
-            }
+                // Function to update stars position
+                function updateStarsPosition() {
+                    // Calculate scroll percentage (0 to 1)
+                    const scrollPercent =
+                        window.scrollY /
+                        (document.body.scrollHeight - window.innerHeight || 1);
 
-            // Create a throttled scroll handler to improve performance
-            function throttleScroll(callback, delay = 10) {
-                let lastCall = 0;
-                return function () {
-                    const now = Date.now();
-                    if (now - lastCall >= delay) {
-                        lastCall = now;
-                        callback.apply(this, arguments);
+                    // Map to position (-100vh to 0vh)
+                    const position = -100 + scrollPercent * 100;
+
+                    // Apply transform
+                    stars.style.transform = `translateY(${position}vh)`;
+                }
+
+                // Enable smooth transitions after initial position is set
+                setTimeout(function () {
+                    stars.style.transition = "transform 0.2s ease-out";
+                    updateStarsPosition(); // Set initial position based on scroll
+                }, 50);
+
+                // Throttle scroll events for better performance
+                let ticking = false;
+                window.addEventListener("scroll", function () {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function () {
+                            updateStarsPosition();
+                            ticking = false;
+                        });
+                        ticking = true;
                     }
-                };
-            }
+                });
 
-            // Set initial position when page loads
-            window.addEventListener("load", function () {
-                // Set initial position - start with stars above viewport
-                document.getElementById("stars").style.transform =
-                    "translateY(-100vh)";
-
-                // Initial scroll position update
-                handleScroll();
-
-                // Add throttled scroll event listener for better performance
-                window.addEventListener("scroll", throttleScroll(handleScroll));
+                // Update on resize too
+                window.addEventListener("resize", updateStarsPosition);
             });
         </script>
     </body>

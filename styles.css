@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
+    height: 300vh;
     background-color: #0c1445;
 }
 
@@ -28,7 +29,8 @@ main {
     height: 200vh;
     z-index: -1;
     transform: translateY(-100vh);
-    transition: transform 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.2s ease-out;
+    will-change: transform;
 }
 
 .paper-star {
