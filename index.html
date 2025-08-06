@@ -7,9 +7,11 @@
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
     <body>
-        <nav><h1>Paper stars</h1></nav>
-        <main>
-            <section>
+        <div class="scroll-container">
+            <nav>
+                <h1>Paper stars</h1>
+            </nav>
+            <section id="section1">
                 <div class="note">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Vivamus blandit dolor eget sollicitudin posuere. Donec metus
@@ -26,7 +28,7 @@
                     nisl vitae quam elementum consectetur.
                 </div>
             </section>
-            <section>
+            <section id="section2">
                 <div class="note">
                     Nulla eget pellentesque tellus, accumsan finibus urna.
                     Pellentesque mattis orci sapien, vel vehicula libero gravida
@@ -45,7 +47,7 @@
                     vitae quam et magna molestie sagittis id eget nisi.
                 </div>
             </section>
-            <section>
+            <section id="section3">
                 <div class="note">
                     Maecenas cursus nisl lacinia, viverra orci nec, lobortis
                     nisi. Duis in velit eleifend, imperdiet leo ac, varius
@@ -64,7 +66,8 @@
                     fermentum sem.
                 </div>
             </section>
-        </main>
+        </div>
+        <!-- End of scroll-container -->
 
         <div class="parallax" id="parallax">
             <div class="earth"></div>
@@ -304,26 +307,42 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const parallax = document.getElementById("parallax");
+                const scrollContainer =
+                    document.querySelector(".scroll-container");
+                const sections = document.querySelectorAll("section");
+                let isSnapping = false;
+                let snapTimeout;
+
+                // Make sure body and html are proper height
+                document.body.style.height = "100vh";
+                document.documentElement.style.height = "100vh";
 
                 // Disable CSS animation completely so JavaScript takes over
                 parallax.style.animation = "none";
 
                 // Initial position - start with parallax above viewport
-                parallax.style.transform = "translateY(-200)";
+                parallax.style.transform = "translateY(-200vh)";
                 parallax.style.transition = "none"; // Disable transition initially
 
                 // Function to update parallax position
                 function updateStarsPosition() {
                     // Calculate scroll percentage (0 to 1)
                     const scrollPercent =
-                        window.scrollY /
-                        (document.body.scrollHeight - window.innerHeight || 1);
+                        scrollContainer.scrollTop /
+                        (scrollContainer.scrollHeight -
+                            scrollContainer.clientHeight || 1);
 
-                    // Map to position (-100vh to 0vh)
+                    // Map to position (-200vh to 0vh)
                     const position = -200 + scrollPercent * 200;
 
                     // Apply transform
                     parallax.style.transform = `translateY(${position}vh)`;
+                }
+
+                // Function to handle scroll snap finishing
+                function onSnapFinish() {
+                    isSnapping = false;
+                    updateStarsPosition(); // Ensure parallax is correctly positioned after snap
                 }
 
                 // Enable smooth transitions after initial position is set
@@ -334,8 +353,16 @@
 
                 // Throttle scroll events for better performance
                 let ticking = false;
-                window.addEventListener("scroll", function () {
-                    if (!ticking) {
+                scrollContainer.addEventListener("scroll", function () {
+                    // Clear previous snap timeout if exists
+                    if (snapTimeout) {
+                        clearTimeout(snapTimeout);
+                    }
+
+                    // Set a new timeout for snap finishing
+                    snapTimeout = setTimeout(onSnapFinish, 300);
+
+                    if (!ticking && !isSnapping) {
                         window.requestAnimationFrame(function () {
                             updateStarsPosition();
                             ticking = false;
@@ -346,6 +373,15 @@
 
                 // Update on resize too
                 window.addEventListener("resize", updateStarsPosition);
+
+                // Ensure initial scroll is at the top
+                scrollContainer.scrollTop = 0;
+
+                // Handle scroll snap events
+                scrollContainer.addEventListener("scrollend", function () {
+                    isSnapping = false;
+                    updateStarsPosition();
+                });
             });
         </script>
     </body>
