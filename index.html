@@ -7,9 +7,68 @@
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
     <body>
-        <main></main>
+        <nav><h1>Paper stars</h1></nav>
+        <main>
+            <section>
+                <div class="note">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus blandit dolor eget sollicitudin posuere. Donec metus
+                    nunc, ullamcorper sit amet posuere et, ornare id erat. Orci
+                    varius natoque penatibus et magnis dis parturient montes,
+                    nascetur ridiculus mus.
+                </div>
+                <div class="note">
+                    Praesent ac purus ligula. Pellentesque maximus porttitor
+                    mauris, ac imperdiet leo venenatis quis. Nulla suscipit nisi
+                    ipsum, in aliquet sem bibendum ut. Mauris sed lorem porta,
+                    dignissim eros vitae, convallis massa. Mauris mattis elit ac
+                    mi imperdiet, vel sollicitudin leo consequat. Nullam non
+                    nisl vitae quam elementum consectetur.
+                </div>
+            </section>
+            <section>
+                <div class="note">
+                    Nulla eget pellentesque tellus, accumsan finibus urna.
+                    Pellentesque mattis orci sapien, vel vehicula libero gravida
+                    et. Nam nisi ex, pulvinar sit amet ultrices et, maximus
+                    aliquet mauris. Donec vel augue tempus, gravida est eu,
+                    dictum odio. Quisque vel nulla purus. Vestibulum ante ipsum
+                    primis in faucibus orci luctus et ultrices posuere cubilia
+                    curae;
+                </div>
+                <div class="note">
+                    Donec convallis justo ut lorem porttitor hendrerit in et
+                    erat. Suspendisse at enim nec mauris semper volutpat. Etiam
+                    vitae justo eu velit euismod euismod. Nullam eu orci auctor,
+                    consectetur quam quis, finibus sapien. Ut vitae fringilla
+                    leo. Sed at erat cursus, aliquam justo eu, varius mi. Nam
+                    vitae quam et magna molestie sagittis id eget nisi.
+                </div>
+            </section>
+            <section>
+                <div class="note">
+                    Maecenas cursus nisl lacinia, viverra orci nec, lobortis
+                    nisi. Duis in velit eleifend, imperdiet leo ac, varius
+                    augue. Etiam sit amet risus nulla. Suspendisse volutpat
+                    lectus sit amet nulla viverra, ut lobortis lacus vestibulum.
+                    Fusce vestibulum quis risus at convallis. Maecenas ultrices
+                    velit vel ipsum rhoncus, eget tempus nisl finibus.
+                </div>
+                <div class="note">
+                    Vivamus egestas, sapien sit amet tempus consequat, ligula
+                    ligula tempus dolor, ac hendrerit sem tellus id purus. Nam
+                    commodo nisl volutpat ex viverra maximus. Nunc fermentum
+                    turpis vitae leo maximus, feugiat porta risus facilisis.
+                    Vestibulum eu dolor ut ligula finibus eleifend at eget
+                    neque. Donec in turpis consequat, tristique nibh sit amet,
+                    fermentum sem.
+                </div>
+            </section>
+        </main>
 
         <div class="parallax" id="parallax">
+            <div class="earth"></div>
+            <div class="atmosphere"></div>
             <div class="stars">
                 <div
                     class="star-shape"
@@ -250,7 +309,7 @@
                 parallax.style.animation = "none";
 
                 // Initial position - start with parallax above viewport
-                parallax.style.transform = "translateY(-400vh)";
+                parallax.style.transform = "translateY(-200)";
                 parallax.style.transition = "none"; // Disable transition initially
 
                 // Function to update parallax position
@@ -261,7 +320,7 @@
                         (document.body.scrollHeight - window.innerHeight || 1);
 
                     // Map to position (-100vh to 0vh)
-                    const position = -400 + scrollPercent * 400;
+                    const position = -200 + scrollPercent * 200;
 
                     // Apply transform
                     parallax.style.transform = `translateY(${position}vh)`;
