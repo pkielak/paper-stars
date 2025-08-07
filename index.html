@@ -18,14 +18,14 @@
                 <h1>Paper stars</h1>
             </nav>
             <section id="section1">
-                <div class="note">
+                <div class="note animate-on-visible">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Vivamus blandit dolor eget sollicitudin posuere. Donec metus
                     nunc, ullamcorper sit amet posuere et, ornare id erat. Orci
                     varius natoque penatibus et magnis dis parturient montes,
                     nascetur ridiculus mus.
                 </div>
-                <div class="note">
+                <div class="note animate-on-visible">
                     Praesent ac purus ligula. Pellentesque maximus porttitor
                     mauris, ac imperdiet leo venenatis quis. Nulla suscipit nisi
                     ipsum, in aliquet sem bibendum ut. Mauris sed lorem porta,
@@ -35,7 +35,7 @@
                 </div>
             </section>
             <section id="section2">
-                <div class="note">
+                <div class="note animate-on-visible">
                     Nulla eget pellentesque tellus, accumsan finibus urna.
                     Pellentesque mattis orci sapien, vel vehicula libero gravida
                     et. Nam nisi ex, pulvinar sit amet ultrices et, maximus
@@ -44,7 +44,7 @@
                     primis in faucibus orci luctus et ultrices posuere cubilia
                     curae;
                 </div>
-                <div class="note">
+                <div class="note animate-on-visible">
                     Donec convallis justo ut lorem porttitor hendrerit in et
                     erat. Suspendisse at enim nec mauris semper volutpat. Etiam
                     vitae justo eu velit euismod euismod. Nullam eu orci auctor,
@@ -54,7 +54,7 @@
                 </div>
             </section>
             <section id="section3">
-                <div class="note">
+                <div class="note animate-on-visible">
                     Maecenas cursus nisl lacinia, viverra orci nec, lobortis
                     nisi. Duis in velit eleifend, imperdiet leo ac, varius
                     augue. Etiam sit amet risus nulla. Suspendisse volutpat
@@ -62,7 +62,7 @@
                     Fusce vestibulum quis risus at convallis. Maecenas ultrices
                     velit vel ipsum rhoncus, eget tempus nisl finibus.
                 </div>
-                <div class="note">
+                <div class="note animate-on-visible">
                     Vivamus egestas, sapien sit amet tempus consequat, ligula
                     ligula tempus dolor, ac hendrerit sem tellus id purus. Nam
                     commodo nisl volutpat ex viverra maximus. Nunc fermentum
@@ -387,6 +387,36 @@
                 scrollContainer.addEventListener("scrollend", function () {
                     isSnapping = false;
                     updateStarsPosition();
+                });
+
+                // Intersection Observer to trigger animation when section is visible
+                const observerOptions = {
+                    root: scrollContainer,
+                    rootMargin: "0px",
+                    threshold: 1.0, // Trigger when 100% of the section is visible
+                };
+
+                const observerCallback = (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const notes =
+                                entry.target.querySelectorAll(".note");
+                            notes.forEach((note) => {
+                                note.classList.add("animate");
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(
+                    observerCallback,
+                    observerOptions,
+                );
+
+                // Observe all sections
+                sections.forEach((section) => {
+                    observer.observe(section);
                 });
             });
         </script>
