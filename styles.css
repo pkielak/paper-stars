@@ -3,12 +3,28 @@
     --nord0-polar-night: #2e3440;
     --nord1-polar-night: #3b4252;
     --nord4-snow-storm: #d8dee9;
-    --nord9-frost: #8fbcbb;
     --nord8-frost: #88c0d0;
     --nord9-frost: #81a1c1;
     --nord11-aurora: #bf616a;
     --nord13-aurora: #ebcb8b;
     --nord14-aurora: #a3be8c;
+
+    /* Material UI Shadows */
+    --shadow-2:
+        0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    --shadow-4:
+        0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    --shadow-6:
+        0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+        0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    --shadow-8:
+        0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -92,9 +108,7 @@ section {
     padding: 18px 20px 38px 20px;
     background: var(--nord4-snow-storm);
     border-radius: 3px 12px 50px 3px;
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.22),
-        0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-4);
     animation: none; /* Disable initial animation */
     transition: animation 0.3s ease-in-out;
     transform: rotate(-2deg);
@@ -112,7 +126,7 @@ section {
     0% {
         opacity: 0;
         transform: rotate(-10deg) scale(8) translateY(-80px);
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-6);
     }
     70% {
         transform: rotate(4deg) scale(1.08) translateY(10px);
@@ -120,7 +134,7 @@ section {
     100% {
         opacity: 1;
         transform: rotate(-2deg) scale(1) translateY(0);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+        box-shadow: var(--shadow-4);
     }
 }
 
@@ -150,10 +164,6 @@ section {
 @media (min-width: 768px) {
     section {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .note {
-        /*aspect-ratio: 1;*/
     }
 
     .note:nth-child(odd) {
@@ -191,9 +201,7 @@ section {
     width: 200vh;
     border-radius: 50%;
     z-index: 2;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: var(--shadow-6);
 }
 
 .atmosphere {
@@ -206,9 +214,7 @@ section {
     width: 400vh;
     border-radius: 50%;
     z-index: 1;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: var(--shadow-8);
 }
 
 .stars {
@@ -258,9 +264,7 @@ section {
     color: var(--nord13-aurora);
     font-size: 2rem;
     opacity: 0.8;
-    text-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    text-shadow: var(--shadow-2);
     transform: rotate(0deg);
     pointer-events: none;
     user-select: none;
@@ -285,9 +289,7 @@ section {
     position: relative;
     margin: 0 auto;
     z-index: 1;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: var(--shadow-4);
 }
 
 .rocket-window {
@@ -298,9 +300,7 @@ section {
     position: absolute;
     top: 10px;
     left: 10px;
-    box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.12),
-        0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: var(--shadow-2);
 }
 
 .rocket-fin {
@@ -309,9 +309,7 @@ section {
     border-bottom: 40px solid var(--nord11-aurora);
     position: absolute;
     bottom: -10px;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: var(--shadow-4);
 }
 
 .rocket-fin:nth-child(2) {
@@ -351,9 +349,7 @@ section {
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     background: var(--nord13-aurora);
     z-index: 2;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: var(--shadow-4);
 }
 
 .flame-outer {
@@ -365,9 +361,7 @@ section {
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     background: var(--nord11-aurora);
     z-index: 1;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: var(--shadow-4);
 }
 
 @keyframes flame {
