@@ -393,18 +393,22 @@
                 const observerOptions = {
                     root: scrollContainer,
                     rootMargin: "0px",
-                    threshold: 1.0, // Trigger when 100% of the section is visible
+                    threshold: 0.5, // Trigger when 50% of the section is visible
                 };
 
                 const observerCallback = (entries, observer) => {
                     entries.forEach((entry) => {
+                        const notes = entry.target.querySelectorAll(".note");
                         if (entry.isIntersecting) {
-                            const notes =
-                                entry.target.querySelectorAll(".note");
                             notes.forEach((note) => {
                                 note.classList.add("animate");
+                                note.classList.remove("animate-backward");
                             });
-                            observer.unobserve(entry.target);
+                        } else {
+                            notes.forEach((note) => {
+                                note.classList.add("animate-backward");
+                                note.classList.remove("animate");
+                            });
                         }
                     });
                 };
