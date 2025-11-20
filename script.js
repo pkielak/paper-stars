@@ -1,107 +1,91 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const parallax = document.getElementById("parallax");
-  const scrollContainer = document.querySelector(".scroll-container");
-  const sections = document.querySelectorAll("section");
+// paper-stars/script.js
+// ------------------------------------------------------------------
+// Handles parallax scrolling, section animations, and responsive layout
+// ------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- DOM references ---------- */
+  const parallax = document.getElementById("parallax"); // Parallax container
+  const scrollContainer = document.querySelector(".scroll-container"); // Scrollable container
+  const sections = document.querySelectorAll("section"); // All sections
+
+  /* ---------- State variables ---------- */
   let isSnapping = false;
   let snapTimeout;
+  let ticking = false;
 
-  // Make sure body and html are proper height
+  /* ---------- Helper functions ---------- */
+  const getScrollPercent = () =>
+    scrollContainer.scrollTop /
+    (scrollContainer.scrollHeight - scrollContainer.clientHeight || 1);
+
+  const updateParallax = () => {
+    const percent = getScrollPercent();
+    const y = -200 + percent * 200; // Translate from -200vh to 0vh
+    parallax.style.transform = `translateY(${y}vh)`;
+  };
+
+  /* ---------- Initial layout ---------- */
   document.body.style.height = "100vh";
   document.documentElement.style.height = "100vh";
-
-  // Disable CSS animation completely so JavaScript takes over
   parallax.style.animation = "none";
-
-  // Initial position - start with parallax above viewport
   parallax.style.transform = "translateY(-200vh)";
-  parallax.style.transition = "none"; // Disable transition initially
+  parallax.style.transition = "none";
 
-  // Function to update parallax position
-  function updateStarsPosition() {
-    // Calculate scroll percentage (0 to 1)
-    const scrollPercent =
-      scrollContainer.scrollTop /
-      (scrollContainer.scrollHeight - scrollContainer.clientHeight || 1);
-
-    // Map to position (-200vh to 0vh)
-    const position = -200 + scrollPercent * 200;
-
-    // Apply transform
-    parallax.style.transform = `translateY(${position}vh)`;
-  }
-
-  // Function to handle scroll snap finishing
-  function onSnapFinish() {
-    isSnapping = false;
-    updateStarsPosition(); // Ensure parallax is correctly positioned after snap
-  }
-
-  // Enable smooth transitions after initial position is set
-  setTimeout(function () {
+  /* ---------- Smooth transition after initial position ---------- */
+  setTimeout(() => {
     parallax.style.transition = "transform 0.2s ease-out";
-    updateStarsPosition(); // Set initial position based on scroll
+    updateParallax();
   }, 50);
 
-  // Throttle scroll events for better performance
-  let ticking = false;
-  scrollContainer.addEventListener("scroll", function () {
-    // Clear previous snap timeout if exists
-    if (snapTimeout) {
-      clearTimeout(snapTimeout);
-    }
+  /* ---------- Scroll handling ---------- */
+  scrollContainer.addEventListener("scroll", () => {
+    // Debounce snap timeout
+    if (snapTimeout) clearTimeout(snapTimeout);
+    snapTimeout = setTimeout(() => {
+      isSnapping = false;
+      updateParallax();
+    }, 300);
 
-    // Set a new timeout for snap finishing
-    snapTimeout = setTimeout(onSnapFinish, 300);
-
+    // Throttle animation frame
     if (!ticking && !isSnapping) {
-      window.requestAnimationFrame(function () {
-        updateStarsPosition();
+      window.requestAnimationFrame(() => {
+        updateParallax();
         ticking = false;
       });
       ticking = true;
     }
   });
 
-  // Update on resize too
-  window.addEventListener("resize", updateStarsPosition);
+  /* ---------- Resize handling ---------- */
+  window.addEventListener("resize", updateParallax);
 
-  // Ensure initial scroll is at the top
+  /* ---------- Ensure scroll starts at top ---------- */
   scrollContainer.scrollTop = 0;
 
-  // Handle scroll snap events
-  scrollContainer.addEventListener("scrollend", function () {
-    isSnapping = false;
-    updateStarsPosition();
-  });
-
-  // Intersection Observer to trigger animation when section is visible
+  /* ---------- Intersection Observer for section animations ---------- */
   const observerOptions = {
     root: scrollContainer,
     rootMargin: "0px",
-    threshold: 0.5, // Trigger when 50% of the section is visible
+    threshold: 0.5, // Trigger when 50% of section is visible
   };
 
-  const observerCallback = (entries, observer) => {
+  const observerCallback = (entries) => {
     entries.forEach((entry) => {
       const notes = entry.target.querySelectorAll(".note");
-      if (entry.isIntersecting) {
-        notes.forEach((note) => {
+      notes.forEach((note) => {
+        if (entry.isIntersecting) {
           note.classList.add("animate");
           note.classList.remove("animate-backward");
-        });
-      } else {
-        notes.forEach((note) => {
+        } else {
           note.classList.add("animate-backward");
           note.classList.remove("animate");
-        });
-      }
+        }
+      });
     });
   };
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-  // Observe all sections
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
+  sections.forEach((section) => observer.observe(section));
 });
