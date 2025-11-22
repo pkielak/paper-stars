@@ -289,6 +289,75 @@ section {
     box-shadow: var(--shadow-8);
 }
 
+.cloud {
+    position: absolute;
+    height: 180px; /* control the size */
+    aspect-ratio: 1.8;
+    --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+    mask:
+        var(--g) 100% 100%/30% 60%,
+        var(--g) 70% 0/50% 100%,
+        var(--g) 0 100%/36% 68%,
+        var(--g) 27% 18%/26% 40%,
+        linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+    background: rgba(255, 255, 255);
+    z-index: 0;
+    animation: floatCloud 60s infinite linear;
+}
+
+.cloud:nth-child(2) {
+    animation-delay: -10s;
+}
+
+.cloud:nth-child(3) {
+    animation-delay: -20s;
+}
+
+.cloud:nth-child(4) {
+    animation-delay: -30s;
+}
+
+.cloud:nth-child(5) {
+    animation-delay: -40s;
+}
+
+.cloud:nth-child(6) {
+    animation-delay: -50s;
+}
+
+.cloud:nth-child(7) {
+    animation-delay: -15s;
+}
+
+.cloud:nth-child(8) {
+    animation-delay: -25s;
+}
+
+.cloud:nth-child(9) {
+    animation-delay: -35s;
+}
+
+.cloud:nth-child(10) {
+    animation-delay: -45s;
+}
+
+@keyframes floatCloud {
+    0% {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(100vw) translateY(-50px) scale(1.2);
+        opacity: 0;
+    }
+}
+
 .stars {
     position: absolute;
     top: 0;
