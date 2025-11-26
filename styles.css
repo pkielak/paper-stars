@@ -103,7 +103,6 @@ section {
     font-size: 1.2rem;
     width: calc(100% - 4rem);
     max-width: 400px;
-    aspect-ratio: 1;
     margin: 0 auto;
     padding: 18px 20px 38px 20px;
     background: var(--nord4-snow-storm);
@@ -262,7 +261,9 @@ section {
         var(--g) 27% 18%/26% 40%,
         linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
     background: rgba(255, 255, 255);
-    box-shadow: var(--shadow-8);
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.2))
+        drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14))
+        drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12));
     z-index: 0;
     animation: floatCloud 30s infinite linear;
 }
@@ -322,41 +323,6 @@ section {
     height: 100vh;
 }
 
-.paper-star {
-    position: absolute;
-    color: var(--nord13-aurora);
-    font-size: 2rem;
-    animation: float 25s infinite linear;
-    opacity: 0.8;
-    text-shadow: 0 0 10px rgba(235, 203, 139, 0.7); /* Nord Aurora */
-    transform: rotate(0deg);
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.8;
-    }
-    90% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.static-star {
-    position: absolute;
-    color: var(--nord13-aurora);
-    font-size: 1.5rem;
-    opacity: 0.6;
-    text-shadow: 0 0 8px rgba(235, 203, 139, 0.5); /* Nord Aurora */
-}
-
 .star-shape {
     position: absolute;
     color: var(--nord13-aurora);
@@ -366,6 +332,28 @@ section {
     transform: rotate(0deg);
     pointer-events: none;
     user-select: none;
+    /* Added animation for dimming effect */
+    animation: starGlowing 2s infinite alternate ease-in-out;
+}
+
+@keyframes starGlowing {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.2;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+.star-shape:nth-child(2n + 1) {
+    animation-delay: 0s;
+}
+
+.star-shape:nth-child(2n) {
+    animation-delay: 1s;
 }
 
 /* Rocket styles */
