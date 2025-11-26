@@ -13,7 +13,6 @@
             height="140%"
             color-interpolation-filters="sRGB"
         >
-            <!-- More subtle shadow: reduced opacity, smaller blur and offset -->
             <feDropShadow
                 dx="0"
                 dy="1.5"
@@ -22,21 +21,14 @@
             />
         </filter>
     </defs>
-    <!-- Ocean base circle -->
-    <circle cx="100" cy="100" r="100" fill="#81a1c1" />
     <g fill="#a3be8c" filter="url(#continentDropShadow)">
-        <!-- Europe -->
         <path d="M117 57 L98 66 L88 70 L87 55 L92 42 L105 35 L120 40 L125 52 Z" />
-        <!-- Asia -->
         <path d="M100.2 38.5 L140.7 60.6 L173.2 64.5 L182.3 45 L165.4 25.5 L133.8 16.4 L101.7 26.8 L92.6 48.9 Z" />
-        <!-- Africa rotated 150deg but kept position relative to Europe and Asia, scaled up by 10% -->
         <path d="M150.5 101.6 L107.3 82.5 L117.3 66.9 L137.3 60.5 L152.8 80.3 L152.8 110 Z" />
     </g>
     <g fill="#a3be8c" filter="url(#continentDropShadow)">
-        <!-- North America -->
         <path d="M40 38 L60 26 L72 36 L72 58 L66 75 L54 66 L40 58 Z" />
-        <!-- South America -->
         <path d="M58 60 L83 92 L91 123 L79 132 L61 112 L53 85 Z" />
     </g>
-    <ellipse cx="100" cy="12" rx="30" ry="15" fill="#ffffff" filter="url(#continentDropShadow)" />
+    <ellipse cx="100" cy="12" rx="30" ry="15" fill="#d8dee9" filter="url(#continentDropShadow)" />
 </svg>
