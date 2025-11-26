@@ -1,0 +1,41 @@
+<svg
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet"
+    style="width: 100%; height: 100%; display: block"
+>
+    <defs>
+        <filter
+            id="continentDropShadow"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+            color-interpolation-filters="sRGB"
+        >
+            <!-- More subtle shadow: reduced opacity, smaller blur and offset -->
+            <feDropShadow
+                dx="0"
+                dy="2"
+                stdDeviation="2"
+                flood-color="rgba(46,52,64,0.3)"
+            />
+        </filter>
+    </defs>
+    <!-- Ocean base circle -->
+    <circle cx="100" cy="100" r="100" fill="#81a1c1" />
+    <g fill="#a3be8c" filter="url(#continentDropShadow)">
+        <!-- Europe -->
+        <path d="M117 57 L98 66 L88 70 L87 55 L92 42 L105 35 L120 40 L125 52 Z" />
+        <!-- Asia -->
+        <path d="M100.2 38.5 L140.7 60.6 L173.2 64.5 L182.3 45 L165.4 25.5 L133.8 16.4 L101.7 26.8 L92.6 48.9 Z" />
+        <!-- Africa rotated 180deg but kept position relative to Europe and Asia -->
+        <path d="M145 96 L103 75 L113 61 L133 55 L148 73 L148 100 Z" />
+    </g>
+    <g fill="#a3be8c" filter="url(#continentDropShadow)">
+        <!-- North America -->
+        <path d="M40 38 L60 26 L72 36 L72 58 L66 75 L54 66 L40 58 Z" />
+        <!-- South America -->
+        <path d="M58 60 L83 92 L91 123 L79 132 L61 112 L53 85 Z" />
+    </g>
+</svg>

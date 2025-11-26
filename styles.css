@@ -164,7 +164,7 @@ section {
     overflow: hidden;
 }
 
-.continent-wrapper {
+/*.continent-wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -176,63 +176,11 @@ section {
 
 .continent {
     background: var(--nord14-aurora);
-}
+}*/
 
-.continent-wrapper:has(#continent1) {
-    transform: translate(-40%, -20%) rotate(0deg);
-}
-
-.continent-wrapper:has(#continent2) {
-    transform: translate(-30%, -90%) rotate(-35deg);
-}
-
-.continent-wrapper:has(#continent3) {
-    top: 0%;
-    transform: translate(-50%, -87.5%);
-}
-
-#continent1 {
-    height: 200vh;
-    width: 200vh;
-    clip-path: polygon(
-        40% 10%,
-        60% 10%,
-        50% 30%,
-        70% 50%,
-        50% 70%,
-        30% 50%,
-        20% 70%,
-        40% 50%,
-        30% 30%
-    );
-}
-
-#continent2 {
-    height: 150vh;
-    width: 150vh;
-    clip-path: polygon(
-        20% 20%,
-        30% 30%,
-        40% 20%,
-        50% 40%,
-        60% 20%,
-        70% 30%,
-        80% 20%,
-        70% 50%,
-        60% 70%,
-        50% 60%,
-        40% 70%,
-        30% 50%,
-        20% 60%
-    );
-}
-
-#continent3 {
-    height: 120vh;
-    width: 120vh;
-    border-radius: 50%;
-    background: var(--nord4-snow-storm);
-    z-index: 4;
+.continent path {
+    filter: drop-shadow(0 4px 4px var(--nord1-polar-night));
+    /* Using the --nord1-polar-night color approximates the --shadow-6 shadow color but you can adjust as needed */
 }
 
 .atmosphere {
