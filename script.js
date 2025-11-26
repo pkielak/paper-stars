@@ -62,30 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Ensure scroll starts at top ---------- */
   scrollContainer.scrollTop = 0;
-
-  /* ---------- Intersection Observer for section animations ---------- */
-  const observerOptions = {
-    root: scrollContainer,
-    rootMargin: "0px",
-    threshold: 0.5, // Trigger when 50% of section is visible
-  };
-
-  const observerCallback = (entries) => {
-    entries.forEach((entry) => {
-      const notes = entry.target.querySelectorAll(".note");
-      notes.forEach((note) => {
-        if (entry.isIntersecting) {
-          note.classList.add("animate");
-          note.classList.remove("animate-backward");
-        } else {
-          note.classList.add("animate-backward");
-          note.classList.remove("animate");
-        }
-      });
-    });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  sections.forEach((section) => observer.observe(section));
 });

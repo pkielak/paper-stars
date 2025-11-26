@@ -67,7 +67,7 @@ nav {
     padding: 1rem;
     width: 100%;
     height: 4rem;
-    z-index: 2;
+    z-index: 999;
     backdrop-filter: blur(5px);
     color: var(--nord4-snow-storm);
     background: rgba(
@@ -107,35 +107,8 @@ section {
     margin: 0 auto;
     padding: 18px 20px 38px 20px;
     background: var(--nord4-snow-storm);
-    border-radius: 3px 12px 50px 3px;
+    border-radius: 3px;
     box-shadow: var(--shadow-4);
-    animation: none; /* Disable initial animation */
-    transition: animation 0.3s ease-in-out;
-    transform: rotate(-2deg);
-    opacity: 0;
-}
-.note.animate {
-    animation: stickypeel 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.note.animate-backward {
-    animation: vanish 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes stickypeel {
-    0% {
-        opacity: 0;
-        transform: rotate(-10deg) scale(8) translateY(-80px);
-        box-shadow: var(--shadow-6);
-    }
-    70% {
-        transform: rotate(4deg) scale(1.08) translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: rotate(-2deg) scale(1) translateY(0);
-        box-shadow: var(--shadow-4);
-    }
 }
 
 @keyframes vanish {
@@ -146,19 +119,6 @@ section {
     100% {
         opacity: 0;
     }
-}
-
-.note::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border-width: 0 0 38px 38px;
-    border-style: solid;
-    border-color: transparent;
-    box-shadow: -2px 2px 7px rgba(0, 0, 0, 0.03);
-    background: none;
-    pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -345,13 +305,13 @@ section {
 
 @keyframes floatCloud {
     0% {
-        transform: rotate(-45deg);
+        transform: rotate(-90deg);
     }
     50% {
         transform: rotate(0deg);
     }
     100% {
-        transform: rotate(45deg);
+        transform: rotate(90deg);
     }
 }
 
