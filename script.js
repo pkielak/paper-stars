@@ -1,20 +1,11 @@
-// paper-stars/script.js
-// ------------------------------------------------------------------
-// Handles parallax scrolling, section animations, and responsive layout
-// ------------------------------------------------------------------
-
 document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- DOM references ---------- */
-  const parallax = document.getElementById("parallax"); // Parallax container
-  const scrollContainer = document.querySelector(".scroll-container"); // Scrollable container
-  const sections = document.querySelectorAll("section"); // All sections
+  const parallax = document.getElementById("parallax");
+  const scrollContainer = document.querySelector(".scroll-container");
 
-  /* ---------- State variables ---------- */
   let isSnapping = false;
   let snapTimeout;
   let ticking = false;
 
-  /* ---------- Helper functions ---------- */
   const getScrollPercent = () =>
     scrollContainer.scrollTop /
     (scrollContainer.scrollHeight - scrollContainer.clientHeight || 1);
@@ -25,20 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
     parallax.style.transform = `translateY(${y}vh)`;
   };
 
-  /* ---------- Initial layout ---------- */
   document.body.style.height = "100vh";
   document.documentElement.style.height = "100vh";
   parallax.style.animation = "none";
   parallax.style.transform = "translateY(-200vh)";
   parallax.style.transition = "none";
 
-  /* ---------- Smooth transition after initial position ---------- */
   setTimeout(() => {
     parallax.style.transition = "transform 0.2s ease-out";
     updateParallax();
   }, 50);
 
-  /* ---------- Scroll handling ---------- */
   scrollContainer.addEventListener("scroll", () => {
     // Debounce snap timeout
     if (snapTimeout) clearTimeout(snapTimeout);
@@ -57,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ---------- Resize handling ---------- */
   window.addEventListener("resize", updateParallax);
 
   /* ---------- Ensure scroll starts at top ---------- */
