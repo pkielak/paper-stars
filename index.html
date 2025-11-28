@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Paper Stars</title>
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
             rel="preconnect"
@@ -17,107 +21,110 @@
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
     <body>
-        <div class="scroll-container">
-            <nav>
-                <header>Paper stars 🚀</header>
-            </nav>
-            <section id="section1">
-                <div class="note animate-on-visible">
-                    <h1>Hello, dear astrounauts!</h1>
-                </div>
-                <div class="note animate-on-visible">
-                    <h2>
-                        I've made this page to check if I could recreate the
-                        journey of a rocket in HTML+CSS+JS.
-                    </h2>
-                </div>
-            </section>
-            <section id="section2">
-                <div class="note animate-on-visible">
-                    <h2>
-                        It's created because I love to tinker with innovative
-                        ideas, and for the love of the space.
-                    </h2>
-                </div>
-                <div class="note animate-on-visible">
-                    <h2>
-                        Its look is inspired by Material design, and colors are
-                        from Nord design system to achieve a paper-like
-                        appearance.
-                    </h2>
-                </div>
-            </section>
-            <section id="section3">
-                <div class="note animate-on-visible">
-                    <h2>Tell me, if you like it!</h2>
-                </div>
-                <div class="note animate-on-visible">
-                    <h2>
-                        You can find the contact form on
-                        <a
-                            href="https://pkielak.me/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >pkielak.me</a
-                        >
-                    </h2>
-                </div>
-            </section>
+        <nav>
+            <header>Paper stars 🚀</header>
+        </nav>
+        <section id="section1">
+            <div class="note" data-aos="fade-right">
+                <h1>Hello, dear astrounauts!</h1>
+            </div>
+            <div class="note" data-aos="fade-left">
+                <h2>
+                    I've made this page to check if I could recreate the journey
+                    of a rocket in HTML+CSS+JS.
+                </h2>
+            </div>
+        </section>
+        <section id="section2">
+            <div class="note" data-aos="fade-right">
+                <h2>
+                    It's created because I love to tinker with innovative ideas,
+                    and for the love of the space.
+                </h2>
+            </div>
+            <div class="note" data-aos="fade-left">
+                <h2>
+                    Its look is inspired by Material design, and colors are from
+                    Nord design system to achieve a paper-like appearance.
+                </h2>
+            </div>
+        </section>
+        <section id="section3">
+            <div class="note" data-aos="fade-right">
+                <h2>Tell me, if you like it!</h2>
+            </div>
+            <div class="note" data-aos="fade-left">
+                <h2>
+                    You can find the contact form on
+                    <a
+                        href="https://pkielak.me/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >pkielak.me</a
+                    >
+                </h2>
+            </div>
+        </section>
+        <div class="earth">
+            <img src="svgs/continents.svg" alt="earth's continents" />
         </div>
-        <div class="parallax" id="parallax">
-            <div class="earth">
-                <img src="svgs/continents.svg" alt="earth's continents" />
-            </div>
-            <div class="atmosphere">
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-            </div>
-            <div class="stars">
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-                <div class="star-shape">★</div>
-            </div>
+        <div class="atmosphere"></div>
+        <div class="clouds">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        <div class="stars">
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
+            <div class="star-shape">★</div>
         </div>
         <div class="rocket">
             <div class="rocket-body">
@@ -135,6 +142,7 @@
                 <div class="flame-wrapper"><div class="flame-outer"></div></div>
             </div>
         </div>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
